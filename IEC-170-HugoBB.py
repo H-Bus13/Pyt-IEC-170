@@ -6,7 +6,7 @@ EJEMPLO v2.4.1
 
 MAJOR: (version mayor): Se incrementa cuando se hacen cambios grandes (generalmente incomptaibles)
     con la version anterior.
-MINOR: (version menor): Se incrementa cuando se agregan uevas funcionalidades al sistema, pero 
+MINOR: (version menor): Se incrementa cuando se agregan nuevas funcionalidades al sistema, pero 
     sin romper la compatibilidad.
 PATCH: (parche o revisión): Se incrementa, cuando se corrigen errores en el sistema, o mejoran 
     funcionalidades 
