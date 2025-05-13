@@ -4,7 +4,7 @@
 version MAJOR.MINOR.PATCH
 EJEMPLO v2.4.1
 
-MAJOR: (version mayor): Se incrementa cuando se hacen cambios grandes (generalmente incomptaibles)
+MAJOR: (version mayor): Se incrementa cuando se hacen cambios grandes (generalmente incompatibles)
     con la version anterior.
 MINOR: (version menor): Se incrementa cuando se agregan nuevas funcionalidades al sistema, pero 
     sin romper la compatibilidad.
