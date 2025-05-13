@@ -1,5 +1,5 @@
 from version.version import version
-from auxiliares.listas import lnombre, lprecio, lstock
+from auxiliares.listas import lnombre, lprecio, lstock, fn_actualizar_lista
 from auxiliares.validación_numeros import fn_get_num_valido
 #Sistema de gestion de inventario para una tienda
 #autor: Hugo Bustos
@@ -49,11 +49,12 @@ try:
         #****** Agrega producto 
         if (op == "1"):  
             nom = input("Nombre del producto: ")    
-            lnombre.append( nom ) 
+            lnombre.append( nom )
             precio = fn_get_num_valido("Precio del producto: ") #float(input("Precio del producto: ") )
-            lprecio.append( precio ) 
+            lprecio.append( precio )
             canti = fn_get_num_valido("Cantidad del producto: ") #int(input("Cantidad del producto: ") )
-            lstock.append( int(canti)) 
+            lstock.append( int(canti))
+            fn_actualizar_lista(lnombre, lprecio, lstock)
             print(f"Se ha agregado {nom}, con el precio {precio} y el stock {canti}")
         #****** Listar producto 
         if (op == "2"):  
