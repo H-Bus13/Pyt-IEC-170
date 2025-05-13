@@ -1,5 +1,5 @@
 from version.version import version
-from auxiliares.listas import lnombre
+from auxiliares.listas import lnombre, lprecio, lstock
 #Sistema de gestion de inventario para una tienda
 #autor: Hugo Bustos
 
@@ -69,6 +69,7 @@ def fn_buscar(lista, nombre):
 #PROGRAMA PRINCIPAL (PP)
 # listas para administrar los productos
 try:
+
     salir = False
     while not salir:
         print(f" *** Menú {version} ***")
