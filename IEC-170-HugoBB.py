@@ -1,5 +1,5 @@
 from version.version import version
-from 
+from auxiliares.listas import lnombre
 #Sistema de gestion de inventario para una tienda
 #autor: Hugo Bustos
 
