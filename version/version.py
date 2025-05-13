@@ -18,6 +18,7 @@ PATCH: (parche o revisión): Se incrementa, cuando se corrigen errores en el sis
 #       05/05/2025 Se reemplaza el buscar y mostrar producto por funciones y se 
 #                  agregar control de keyboardInterrupt v2.0.1
 #       13/05/2025 Cambio de código a módulos v2.1.1
+#                  Separación de listas a módulo listas 2.1.2
 #     
 
 # version = "v1.0.0"
@@ -25,4 +26,5 @@ PATCH: (parche o revisión): Se incrementa, cuando se corrigen errores en el sis
 # version = "v1.1.1"
 # version = "v2.0.0"
 # version = "v2.0.1"   
-version = "v2.1.1"   
+# version = "v2.1.1"   
+version = "2.1.2"
