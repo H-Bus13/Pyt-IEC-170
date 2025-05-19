@@ -1,36 +1,11 @@
 from version.version import version
 from auxiliares.listas import lnombre, lprecio, lstock, fn_actualizar_lista
 from auxiliares.validación_numeros import fn_get_num_valido
+from productos.fn_buscar_producto import fn_buscar
+from productos.fn_mostrar_producto import fn_mostrar_producto
+
 #Sistema de gestion de inventario para una tienda
 #autor: Hugo Bustos
-
-def fn_mostrar_producto(prod, precio, stock):
-    """
-    `uso`: muestra un producto del inventario;
-    `entrada`: nombre, precio y cantidad del producto;
-    `retorna`: nada;
-    """
-    print(f"Producto: {prod}") 
-    print("Precio: %5.2f" % precio) 
-    print(f"Stock: {stock}")
-    print("=====================================")  
-    #mostrar_producto()
-
-
-def fn_buscar(lista, nombre):
-    esta = False
-    i = 0
-    l = len (nombre)
-    while i < l and not esta:
-        if lista[i].upper() == nombre.upper():
-            esta = True
-        else:
-            i = i + 1
-    if esta:  #si lo encuentra "esta" vale True
-        return i    #retornamos la posicion donde lo halló
-    else:
-        return -1    #retornamos -1 si no lo encuentra
-    #buscar()
 
 #PROGRAMA PRINCIPAL (PP)
 # listas para administrar los productos
