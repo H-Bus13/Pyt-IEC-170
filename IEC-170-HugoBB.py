@@ -18,7 +18,7 @@ try:
         print("[2] Listar productos")
         print("[3] Buscar por nombre")
         print("[4] Eliminar producto")
-        print("[5] Modificar cantidad")
+        print("[5] Modificar Producto")
         print("[6] Salir")
         op = input("Opcion: ")
         #****** Agrega producto 
@@ -60,7 +60,7 @@ try:
                     print(f"Producto {nom} no se ha eliminado.")
             else:
                 print(f"El producto {nom} no está en el inventario")
-            #****** Modificar Cantidad
+            #****** Modificar Producto
         if (op == "5"):
             nom = input("Nombre del producto a Modificar: ")   
             pos = fn_buscar(lnombre,nom) 
@@ -69,7 +69,12 @@ try:
             else:    # si efectivamente esta
                 fn_mostrar_producto(lnombre[pos], lprecio[pos],lstock[pos])
                 resp = input("Seguro que desea modificar [si/no]: ")
+
                 if resp.upper() == "SI": # nos evitamos el si-Si-sI
+                    nombre = input("Ingrese un nuevo nombre: ")
+                    lnombre[pos] = nombre
+                    precio = fn_get_num_valido("Ingrese nuevo precio: ")
+                    lprecio[pos] = int(precio) #int(  input("Ingrese nuevo precio: ") )
                     cant = fn_get_num_valido("Ingrese nueva cantidad: ") #int(  input("Ingrese nueva cantidad: ") )
                     lstock[pos] = int(cant)
                     print(f"Stock de {nom} modificado!!.")
