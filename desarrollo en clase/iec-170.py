@@ -1,5 +1,5 @@
 #Sistema de gestion de inventario para una tienda
-#autor: Manuel Sanchez
+#autor: Hugo Bustos
 
 #import iec170funciones
 from iec170funciones import *
@@ -26,6 +26,13 @@ PATCH: (parche o revisión): Se incrementa, cuando se corrigen errores en el sis
 #                  agregar control de keyboardInterrupt v2.0.1
 #       03/06/2025 Se modulariza cada opcion del menu, v2.1.0
 
+
+def fn_exportar_inventario_csv(lnom, lpre, lsto):
+    with open("inventario.csv","w",encoding = "utf-8") as inventario:
+        largo = len (lnom)
+        for i in range(largo):
+            inventario.write(lnom[i]+";"+str( lpre[i]) +";"+str( lsto[i])+"\n")
+        print("inventario exportado en inventario.csv")
 
 def fn_guardar_inventario_txt(lnom, lpre, lsto):
     with open("inventario.txt","w",encoding = "utf-8") as inventario:
@@ -62,6 +69,19 @@ def fn_guardar_inventario_bin(lnom, lpre, lsto):
         pickle.dump((lnom, lpre, lsto), inventario)
         print("inventario grabado en inventario.bin")
 
+def fn_cargar_inventario_bin(lnom, lpre, lsto):
+    try:
+        with open("inventario.dat","rb") as inventario:
+            datos = pickle.load(inventario)
+            lnom.extend(datos[0])
+            lpre.extend(datos[1])
+            lsto.extend(datos[2])
+        print("Inventario cargado exitosamente.")    
+    
+    except FileNotFoundError:
+        print("No se encontró el inventario, inventario vacio")
+    except Exception as error: 
+        print("Oops! algo salio mal, error:", error)
 
 #PROGRAMA PRINCIPAL (PP)
 # listas para administrar los productos
@@ -70,7 +90,8 @@ lprecio = []
 lstock = []
 try:
     version = "v2.1.0"
-    fn_cargar_inventario_txt(lnombre, lprecio, lstock)
+    # fn_cargar_inventario_txt(lnombre, lprecio, lstock)
+    fn_cargar_inventario_bin(lnombre,lprecio,lstock)
     salir = False
     while not salir:
         print(f" *** Menú {version} ***")
@@ -79,7 +100,8 @@ try:
         print("[3] Buscar por nombre")
         print("[4] Eliminar producto")
         print("[5] Modificar cantidad")
-        print("[6] Salir")
+        print("[6] Exportar inventario")
+        print("[7] Salir")
         op = input("Opcion: ")
         #****** Agrega producto 
         if (op == "1"):  
@@ -100,8 +122,11 @@ try:
         #****** Modificar Cantidad
         if (op == "5"):
             fn_modificar_producto(lnombre, lprecio, lstock)
-
+        
         if (op == "6"):
+            fn_exportar_inventario_csv(lnombre,lprecio,lstock)
+
+        if (op == "7"):
             salir = True
             # fn_guardar_inventario_txt(lnombre, lprecio, lstock)
             fn_guardar_inventario_bin(lnombre,lprecio,lstock)
